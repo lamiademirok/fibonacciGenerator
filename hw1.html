@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel ="icon" href ="fibonacci.png" type = "image/jpg">
+  <title>Fibonacci by Lamia Demirok</title>
+  <style>
+    body{
+      box-shadow: 4px 4px black;
+      margin:auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding:25px;
+      align-content: center;
+      text-align: center;
+      border: 3px solid black;
+      width:400px;
+      font-family: "Calibri Light",sans-serif;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+
+    #result{
+      letter-spacing: 5px;
+      font-size: 20px;
+      width: 20px;
+    }
+
+    footer p{
+      font-size:11px;
+    }
+
+    button{
+      background-color: black;
+      color:white;
+      transition: 0.5s;
+    }
+    h1{
+      transition: 0.5s;
+      font-family: "Arial Narrow",sans-serif;
+    }
+    button:hover, h1:hover{
+      opacity: 50%;
+    }
+
+  </style>
+
+  <script>
+    window.onload = function(){
+      var name="";
+
+      do{
+        name = window.prompt("Please enter your name:");
+      }
+      while (name=="" || name ==null);
+        document.getElementById("yrName").innerHTML= name;
+    }
+
+    function fibonacci(){
+      var num = document.getElementById("numinput").value;
+      let num1 = 0, num2 = 1, numNext;
+
+      numNext = num1 + num2;
+      document.getElementById("result").innerHTML= num1;
+      document.getElementById("result").innerHTML+= "<br>";
+      document.getElementById("result").innerHTML+= num2;
+      document.getElementById("result").innerHTML+= "<br>";
+
+      while (numNext <= num) {
+        document.getElementById("result").innerHTML+= numNext;
+        document.getElementById("result").innerHTML+= "<br>";
+        num1 = num2;
+        num2 = numNext;
+        numNext = num1 + num2;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h3>Welcome to</h3>
+    <h1>FIBONACCI GENERATOR</h1>
+  </header>
+
+  <section>
+    <p>Hello <span id="yrName"></span>!<br><br>Select or type a limit and you will get the
+    Fibonacci sequence until it reaches your number.
+    <br><br>Please enter a number: </p>
+    <input type="number" id="numinput" min="1" value="1">
+    <button onclick="fibonacci()">Show</button>
+    <br><br>
+    <span id="result"></span>
+  </section>
+
+  <footer>
+    <p> Made by Lamia Demirok | MIS 233</p>
+  </footer>
+
+</body>
+</html>
